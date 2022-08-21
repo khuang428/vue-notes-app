@@ -1,0 +1,60 @@
+$primary: rgb(219, 219, 219);
+
+:root{
+  font-size: 20px;
+  box-sizing: border-box;
+}
+
+header {
+  line-height: 3;
+  text-align: center;
+}
+
+#new-button{
+  position: fixed;
+  right: 3%;
+  bottom: 3%;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: $primary;
+  cursor: pointer;
+}
+
+#notes-list{
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.note{
+  /**LAYOUT**/
+  width: 22%;
+  aspect-ratio: 1/1;
+  min-width: 13rem;
+  min-height: 13rem;
+  padding: 0.5rem;
+  overflow-wrap: break-word;
+  .header-bar{
+    font-size: 1.75rem;
+    height: 10%;
+  }
+
+  .content{
+    overflow: hidden;
+    height: 80% 
+  }
+
+  /**THEMING**/
+  background-color: $primary;
+  cursor: default;
+  
+}
+
+.delete{
+  float:right;
+  cursor: pointer;
+}

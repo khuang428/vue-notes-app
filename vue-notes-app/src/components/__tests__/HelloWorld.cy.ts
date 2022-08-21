@@ -1,4 +1,4 @@
-import HelloWorld from "../HelloWorld.vue";
+/*import HelloWorld from "../HelloWorld.vue";
 
 describe("HelloWorld", () => {
   it("playground", () => {
@@ -10,3 +10,4 @@ describe("HelloWorld", () => {
     cy.get("h1").should("contain", "Hello Cypress");
   });
 });
+*/
