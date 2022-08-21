@@ -1,5 +1,12 @@
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from "vue";
 import List from "./components/List.vue";
+
+export default defineComponent({
+  components:{
+    List
+  }
+})
 </script>
 
 <template>

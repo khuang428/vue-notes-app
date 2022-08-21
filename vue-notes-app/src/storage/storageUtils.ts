@@ -44,7 +44,8 @@ export class NoteDAO{
         const ids = localStorage.getItem("ids");
         if(ids){
             let list:NoteDAO[] = [];
-            for(const id of ids){
+            let idList = JSON.parse(ids);
+            for(let id of idList){
                 const note = localStorage.getItem(id);
                 if(note){
                     list.push(JSON.parse(note));

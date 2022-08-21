@@ -1,11 +1,25 @@
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-const props = defineProps({
-    idNum : Number,
-    noteTitle: String,
-    content: String
-});
-
+export default defineComponent({
+    props: {
+        idNum : Number,
+        noteTitle: String,
+        content: String
+    },
+    setup(props){
+        props.idNum;
+        props.noteTitle;
+        props.content;
+    },
+    methods:{
+        deleteNote(){
+            if(this.idNum){
+                this.$emit("deleteMe", this.idNum);
+            }
+        }
+    }
+})
 
 </script>
 
@@ -13,14 +27,14 @@ const props = defineProps({
 <div class="note">
     <div class = "header-bar">
         <span class="title">
-        {{props.noteTitle}}
+        {{noteTitle}}
         </span>
-        <span class="delete">
+        <span class="delete" @click="deleteNote()">
             &#128465;
         </span>
     </div>
     <p class="content">
-        {{props.content}}
+        {{content}}
     </p>
 </div>
 </template>
