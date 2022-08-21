@@ -27,14 +27,12 @@ export default defineComponent({
 <div class="note">
     <div class = "header-bar">
         <span class="title">
-        {{noteTitle}}
+            <input class="title-input" v-model="noteTitle"/>
         </span>
         <span class="delete" @click="deleteNote()">
             &#128465;
         </span>
     </div>
-    <p class="content">
-        {{content}}
-    </p>
+    <textarea class="content">{{content}}</textarea>
 </div>
 </template>
