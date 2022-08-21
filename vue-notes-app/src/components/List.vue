@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Note from "./Note.vue";
-import { NoteDAO }   from "../storage/storageUtils";
+import * as storageUtils from "../storage/storageUtils";
 
 export default defineComponent({
     components:{
@@ -9,18 +9,21 @@ export default defineComponent({
     },
     data(){
         return{
-            notes: NoteDAO.getNotes()
+            notes: storageUtils.getNotes()
         }
         
     },
     methods : {
         createNote(){
-            const idNum = NoteDAO.createNote("","");
-            this.notes.push({id: idNum, title: "", content: ""});
+            const idNum = storageUtils.createNote("New Note","");
+            this.notes.push({id: idNum, title: "New Note", content: ""});
         },
         deleteById(idNum: Number){
-            NoteDAO.deleteNoteById(idNum);
+            storageUtils.deleteNoteById(idNum);
             this.notes = this.notes.filter((n)=>n.id != idNum);
+        },
+        update(note: storageUtils.NoteDAO){
+            storageUtils.updateNote(note);
         }
     }
 });
@@ -32,6 +35,6 @@ export default defineComponent({
     +
 </div>
 <section id="notes-list">
-    <Note v-for="note in notes" :idNum="note.id" :noteTitle="note.title" :content="note.content" @deleteMe="deleteById" />
+    <Note v-for="note in notes" :idNum="note.id" :noteTitle="note.title" :content="note.content" @deleteMe="deleteById" @saveMe="update"/>
 </section>
 </template>

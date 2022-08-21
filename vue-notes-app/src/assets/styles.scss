@@ -33,9 +33,11 @@ main{
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }
 
-.delete{
+.buttons{
   float:right;
-  cursor: pointer;
+  *{
+    cursor: pointer;
+  }
 }
 
 .note{
@@ -63,7 +65,7 @@ main{
     background-color: unset;
     outline: unset;
     font-size: unset;
-    width: 80%;
+    width: 70%;
   }
 
   /**THEMING**/
