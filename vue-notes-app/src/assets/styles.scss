@@ -1,4 +1,4 @@
-$primary: rgb(219, 219, 219);
+$primary: aliceblue;
 
 :root{
   font-size: 20px;
@@ -21,21 +21,27 @@ header {
   cursor: pointer;
 }
 
+main{
+  display: flex;
+  justify-content: center;
+}
+
 #notes-list{
   width: 80%;
-  margin: auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.delete{
+  float:right;
+  cursor: pointer;
 }
 
 .note{
   /**LAYOUT**/
-  width: 22%;
   aspect-ratio: 1/1;
-  min-width: 13rem;
-  min-height: 13rem;
-  padding: 0.5rem;
+  padding: 1rem;
   overflow-wrap: break-word;
   .header-bar{
     font-size: 1.75rem;
@@ -43,17 +49,32 @@ header {
   }
 
   .content{
-    overflow: hidden;
-    height: 80% 
+    height: 80%;
+    width: 100%;
+    border: unset;
+    background-color: unset;
+    outline: unset;
+    resize: none;
+    font-size: 1rem;
+  }
+
+  .title-input{
+    border: unset;
+    background-color: unset;
+    outline: unset;
+    font-size: unset;
+    width: 80%;
   }
 
   /**THEMING**/
   background-color: $primary;
   cursor: default;
   
-}
-
-.delete{
-  float:right;
-  cursor: pointer;
+  transition-property: transform, box-shadow;
+  transition-duration: 250ms;
+  box-shadow: 0 0 1px rgb(0 0 0 / 0%);
+  &:hover{
+    transform: scale(1.05);
+    box-shadow: 0 6px 6px rgb(0 0 0 / 30%);
+  }
 }
